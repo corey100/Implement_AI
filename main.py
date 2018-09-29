@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, Response
 from training import train_set, get_result
-import imp
+from extractFaces import clean_face
 
 # emulated camera
 from webcamvideostream import webcamvideostream
@@ -9,7 +9,6 @@ from webcamvideostream import webcamvideostream
 import cv2
 
 app = Flask(__name__)
-clean_face = imp.load_source('extractFaces', 'initcode/extractFaces.py').clean_face
 
 @app.route('/')
 def index():
@@ -19,11 +18,19 @@ def index():
 
 def gen(camera):
     """Video streaming generator function."""
+    counter =0
     while True:
+        counter +=1
         frame = camera.read()
-        frame = clean_face(frame)
-        ret, jpeg = cv2.imencode('.jpg', frame)
-
+        if(counter == 10): 
+            grayscale = clean_face(frame)
+            counter = 0
+    
+        ret, jpeg = None, None
+        try:
+            ret, jpeg = cv2.imencode('.jpg', frame)
+        except:
+            pass
         # print("after get_frame")
         if jpeg is not None:
             yield make_frame(jpeg)

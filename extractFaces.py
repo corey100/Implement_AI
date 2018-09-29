@@ -23,13 +23,14 @@ def clean_face(frame):
     elif len(face_four) == 1:
         facefeatures = face_four
     else:
-        facefeatures = ""
+        return None
     #Cut and save face
-    (x, y, w, h) = facefeatures
-    gray = gray[y:y+h, x:x+w] #Cut the frame to size
-    out = cv2.resize(gray, (350, 350)) #Resize face so all images have same size
-    return out
-
+    for (x, y, w, h) in facefeatures:
+        gray = gray[y:y+h, x:x+w] #Cut the frame to size
+        out = cv2.resize(gray, (350, 350)) #Resize face so all images have same size
+        return out
+    return None
+    
 def detect_faces(emotion):
     files = glob.glob("data\\sorted_set\\%s\\*" %emotion) #Get list of all images with emotion
     filenumber = 0
@@ -62,5 +63,7 @@ def detect_faces(emotion):
             except:
                pass #If error, pass file
         filenumber += 1 #Increment image number
-for emotion in emotions:
-    detect_faces(emotion) #Call functiona   
+
+if __name__ == '__main__':
+    for emotion in emotions:
+        detect_faces(emotion) #Call functiona   
