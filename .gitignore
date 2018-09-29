@@ -3,3 +3,14 @@ data/source_emotion/
 data/sorted_set/
 .idea/
 .vscode/
+__pycache__/
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
