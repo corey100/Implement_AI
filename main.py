@@ -2,16 +2,16 @@
 from flask import Flask, render_template, Response
 
 # emulated camera
-from webcamvideostream import WebcamVideoStream
+from webcamvideostream import webcamvideostream
 
 import cv2
 
-app = Flask(__name__, template_folder='C:\coding\streamingserver\templates')
+app = Flask(__name__)
 
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('streaming.html')
+    return render_template('index.html')
 
 
 def gen(camera):
