@@ -2,7 +2,7 @@ import cv2
 import glob
 import random
 import numpy as np
-emotions = ["neutral", "anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"] #Emotion list
+emotions = ["neutral", "anger", "disgust", "happy", "surprise", "saddness"]
 fishface = cv2.createFisherFaceRecognizer() #Initialize fisher face classifier
 data = {}
 def get_files(emotion): #Define function to get file list, randomly shuffle it and split 80/20
