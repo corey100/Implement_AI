@@ -101,9 +101,9 @@ def getYoutubeLink(seacrhText):
     return embeddedLink
 
 # Driver Function
-if __name__ == '__main__':
+def getMovies(emotion):
 
-    emotion = input("Enter the emotion: ")
+    #emotion = input("Enter the emotion: ")
     a = main(emotion)
 
     parsedTitles = []
@@ -120,9 +120,13 @@ if __name__ == '__main__':
             print(title)
             parsedTitles.append(title)
             parsedLinks.append("https://www.imdb.com" + tmp[0][9:-1])
-            print(getYoutubeLink(title + "trailer"))
+            embeddedLink = getYoutubeLink(title + "trailer")
+            if embeddedLink is not None:
+                embeddedVideos.append(embeddedLink)
 
         if (count > 11):
             break
         count += 1
+
+    return embeddedVideos
 
