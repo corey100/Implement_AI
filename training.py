@@ -57,3 +57,5 @@ def train_set():
         print "got", correct, "percent correct!"
         metascore.append(correct)
     print "\n\nend score:", np.mean(metascore), "percent correct!"
+
+train_set()
