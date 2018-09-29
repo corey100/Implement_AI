@@ -10,7 +10,8 @@
 ```apt-get install python2```
 
 3- Install OpenCV with
-```pip install opencv-python```
+```pip install opencv-python==2.4.9```
+if this does not work install it manually from opencv.2.4.9
 
 
 ## GET THE DATABASE !!! IMPORTANT

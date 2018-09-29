@@ -1,4 +1,5 @@
-source_images/
-source_emotion/
-sorted_set/
+data/source_images/
+data/source_emotion/
+data/sorted_set/
 .idea/
+.vscode/
