@@ -18,9 +18,14 @@ def index():
 
 def gen(camera):
     """Video streaming generator function."""
+    count = 0
     while True:
+        count += 1
         frame = camera.read()
-    
+        if(count == 100):
+            count = 0
+            myframe = clean_face(frame)
+            
         ret, jpeg = None, None
         try:
             ret, jpeg = cv2.imencode('.jpg', frame)
@@ -31,24 +36,6 @@ def gen(camera):
         else:
             print("frame is none")
 
-def gen2(camera):
-    """Video streaming generator function."""
-    counter =0
-    while True:
-        counter +=1
-        if(counter == 100): 
-            frame = camera.read()
-            grayscale = clean_face(frame)
-            counter = 0
-            try:
-                ret, jpeg = cv2.imencode('.jpg', frame)
-            except:
-                pass
-            if jpeg is not None:
-                yield make_frame(jpeg)
-            else:
-                print("frame is none")
-
 def make_frame(jpeg):
     return (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n')
@@ -57,12 +44,6 @@ def make_frame(jpeg):
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(webcamvideostream().start()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/creepy_feed')
-def creepy_feed():
-    """Video streaming creepy route. Put this in the src attribute of an img tag."""
-    return Response(gen2(webcamvideostream().start()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
