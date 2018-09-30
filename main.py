@@ -103,6 +103,5 @@ if __name__ == '__main__':
     # start with training the set
     train_set()
 
-    
     # Run
     app.run(host='0.0.0.0', port=5010, debug=False, threaded=True)

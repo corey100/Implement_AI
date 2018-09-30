@@ -52,7 +52,7 @@ def run_recognizer():
 def train_set():
     #Now run it
     metascore = []
-    for i in range(0,1):
+    for i in range(0,10):
         correct = run_recognizer()
         print "got", correct, "percent correct!"
         metascore.append(correct)
