@@ -20,11 +20,20 @@
 
         <br>
         <button onclick="location.reload();" style="display: block; margin-left: auto; margin-right: auto; width: 43%;"> Grab Face</button>
+
         <br>
         <div class="video" style="display: block; margin-left: auto; margin-right: auto; width: 23%;">
             <img src="http://localhost:5010/creepy_feed">
         </div>
-        
+
+
+        <button > <a href="/show_movies" >Show Movies </a> </button>
+        <div class="movies" style="display: block; margin-left: auto; margin-right: auto; width: 23%;">
+            {% for item in videos %}
+                <iframe width="560" height="315" src={{item}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {% endfor %}
+        </div>
+
         <br/>
         <div class="text" style="overflow-y:scroll;">
             <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit. Tempor et ut. Nisi nisl diam phasellus hendrerit. Ipsum parturient dolor et praesent nonummy libero ipsum posuere. Blandit. Nunc hendrerit arcu nisl. Non odio lorem augue aenean pede est quis ut vitae suspendisse. Tincidunt curabitur iaculis vestibulum sociosqu class nisl velit fames ve class leo cras. Nullam vehicula consectetuer senectus integer urna eget auctor montes hendrerit quis suscipit etiam facilisis velit. Ullamcorper placerat curabitur ullamcorper. Venenatis massa sem duis eget.
