@@ -26,13 +26,12 @@
         </div>
 
         <button  style="display: block; margin-left: auto; margin-right: auto; width: 43%;"> <a href="/show_movies" >Show Movies </a> </button>
-        <div class="movies" style="display: block; margin-left: auto; margin-right: auto; width: 23%;">
+        <br/>
+        <div class="movies" style="display: block; margin-left: auto; margin-right: auto; width: 35%;">
             {% for item in videos %}
                 <iframe width="560" height="315" src={{item}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             {% endfor %}
         </div>
-
-        <!-- style="display: block; margin-left: auto; margin-right: auto; width: 23%;" -->
         <br/>
     </body>
 </html>
