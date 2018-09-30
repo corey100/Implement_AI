@@ -3,6 +3,7 @@ from flask import Flask, render_template, Response
 from training import train_set, get_result
 from extractFaces import clean_face
 from movies import getMovies
+from speech2text import startcoolmusic
 
 # emulated camera
 from webcamvideostream import webcamvideostream
@@ -96,8 +97,12 @@ def show_movies():
     return render_template('layout.html', videos=videos)
 
 if __name__ == '__main__':
-    # start with training the set
-    #train_set()
+    #start the music listener
+    startcoolmusic()
 
+    # start with training the set
+    train_set()
+
+    
     # Run
     app.run(host='0.0.0.0', port=5010, debug=False, threaded=True)
