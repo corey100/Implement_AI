@@ -93,11 +93,11 @@ def form_example():
 @app.route('/show_movies')
 def show_movies():
     videos = getMovies(emotions[prediction])
-    return render_template('layout.html', videos=videos)
+    return render_template('movies.html', videos=videos)
 
 if __name__ == '__main__':
     # start with training the set
-    #train_set()
+    train_set()
 
     # Run
     app.run(host='0.0.0.0', port=5010, debug=False, threaded=True)

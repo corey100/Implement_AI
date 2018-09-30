@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Implement AI</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+
+        <div class="title" style="text-align: center">
+            <h1>Welcome to FaceTime!!</h1>
+        </div>
+        <br/>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <div class="video" style="display: block; margin-left: auto; margin-right: auto; width: 43%;">
+            <img src="http://localhost:5010/video_feed">
+        </div>
+
+        <br>
+            <button style="display: block; margin-left: auto; margin-right: auto; width: 43%;"><a href="/">Try another expression!</a> </button>
+        <br>
+        <div class="video" style="display: block; margin-left: auto; margin-right: auto; width: 23%;">
+            <img src="http://localhost:5010/creepy_feed">
+        </div>
+
+        <button  style="display: block; margin-left: auto; margin-right: auto; width: 43%;"> <a href="/show_movies" >Show Movies </a> </button>
+        <div class="movies" style="display: block; margin-left: auto; margin-right: auto; width: 23%;">
+            {% for item in videos %}
+                <iframe width="560" height="315" src={{item}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {% endfor %}
+        </div>
+
+        <!-- style="display: block; margin-left: auto; margin-right: auto; width: 23%;" -->
+        <br/>
+    </body>
+</html>
