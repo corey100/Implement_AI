@@ -94,7 +94,7 @@ def form_example():
 @app.route('/show_movies')
 def show_movies():
     videos = getMovies(emotions[prediction])
-    return render_template('layout.html', videos=videos)
+    return render_template('movies.html', videos=videos)
 
 if __name__ == '__main__':
     #start the music listener
