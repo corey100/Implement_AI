@@ -12,6 +12,13 @@
 3- Install OpenCV with
 ```pip install opencv-python==2.4.9```
 if this does not work install it manually from opencv.2.4.9
+copy cv2.pyd to sitepackages of your python2 installation
+
+4- Install pygame with
+```pip install pygame```
+
+5- Install speechrecognition with
+```pip install speechrecognition```
 
 
 ## GET THE DATABASE !!! IMPORTANT
